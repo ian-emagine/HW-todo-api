@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>To Do List</h1>
+
+<p>Click an item to edit it's status</p>
+<p><a href="{{ url_for( 'add_form' ) }}"><button>ADD NEW ITEM</button></a></p>
+<!-- pairs is a list that must be sent here by a route function
+     The list will contain 45 pairs: a presidency number, and a
+     president's name -->
+
+    <ul>
+    {% for item in result['items'] %}
+        <li>{{ item[0] }} ({{ item[1] }}): <a href="{{ url_for( 'update_status', item=item[0], status='in progress' ) }}">Start</a> | <a href="{{ url_for( 'update_status', item=item[0], status='completed' ) }}">Completed</a> | <a href="{{ url_for( 'delete_item', item=item[0] ) }}">Delete</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

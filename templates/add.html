@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add Item</h1>
+
+<p>Click an item to edit it's status</p>
+<form method="POST" action="{{ url_for( 'add_item' ) }}">
+    <label for="item">Item name<input type="text" name="item"></label>
+    <input type="submit" name="Submit">
+</form>
+{% endblock %}
